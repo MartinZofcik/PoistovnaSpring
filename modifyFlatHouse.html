@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>modifyContract</title>
+</head>
+<a th:href="@{'/'}">Domov</a>
+
+<body>
+<form th:action="@{'/contract/modify/' +  ${person.ID} + '/' + ${contract.ID}}" th:object="${contract}" method="post">
+
+    <label for="text">Dátum založenia</label>
+    <input type="LocalDate" th:value="*{dateOfConclusion}" name="dateOfConclusion"/>
+    <br><br>
+
+    <label for="text">Začiatok platnosti</label>
+    <input type="LocalDate" th:value="*{startOfInsurance}" name="startOfInsurance"/>
+    <br><br>
+
+    <label for="text">Koniec platnosti</label>
+    <input type="LocalDate"  th:value="*{endOfInsurance}" name="endOfInsurance"/>
+    <br><br>
+
+    <label for="text">Maximálna suma</label>
+    <input type="number" id="text" th:field="*{maxSumOfInsurance}" name="maxSumOfInsurance"/>
+    <br><br>
+
+    <label for="text">Mesačná splátka</label>
+    <input type="number" th:field="*{monthlyPayment}" name="monthlyPayment"/>
+    <br><br>
+
+    <label for="text">Typ majetku</label>
+    <select th:value="*{typeOfProperty}">
+        <option th:value="TypeOfProperty.FLAT" th:text="Byt"></option>
+        <option th:value="TypeOfProperty.FAMILYHOUSEBRICK" th:text="MurovanýDom"></option>
+        <option th:value="TypeOfProperty.FAMILYHOUSEWOOD" th:text="DrevoDom"></option>
+    </select>
+    <br><br>
+
+    <label for="text">Adresa majetku</label>
+    <input type="text"  th:field="*{addressOfProperty}" name="addressOfProperty"/>
+    <br><br>
+
+    <label for="text">Hodnota majetku</label>
+    <input type="number"  th:field="*{valueOfProperty}" name="valueOfProperty"/>
+    <br><br>
+
+    <label for="text">Poistenie garáže</label>
+    <input type="checkbox" th:field="*{garageInsurance}" name="garageInsurance"/>
+    <br><br>
+
+    <input type="submit" value="Potvrdiť"/>
+
+</form>
+</body>
+</html>

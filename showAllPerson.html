@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>printAll</title>
+</head>
+<a th:href="@{'/'}">Domov</a>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th class="mdl-data-table__cell--non-numeric">Id</th>
+        <th class="mdl-data-table__cell--non-numeric">Meno</th>
+        <th class="mdl-data-table__cell--non-numeric">Priezvisko</th>
+        <th class="mdl-data-table__cell--non-numeric">Email</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="person: ${people}">
+        <td th:text="${person.ID}"></td>
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.surname}"></td>
+        <td th:text="${person.email}"></td>
+        <td><a th:href="@{'/person/show/' + ${person.ID}}">Viac</a></td>
+        <td><a th:href="@{'/person/modify/' + ${person.ID}}">Upraviť</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

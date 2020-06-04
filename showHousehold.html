@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>printContract</title>
+</head>
+<a th:href="@{'/'}">Domov</a>
+
+<body>
+<table>
+    <thead>
+    <tr>
+        <th class="mdl-data-table__cell--non-numeric">ID</th>
+        <th class="mdl-data-table__cell--non-numeric">Poistenec</th>
+        <th class="mdl-data-table__cell--non-numeric">Dátum vytvorenia</th>
+        <th class="mdl-data-table__cell--non-numeric">Začiatok platnosti</th>
+        <th class="mdl-data-table__cell--non-numeric">Koniec platnosti</th>
+        <th class="mdl-data-table__cell--non-numeric">Maximálna suma</th>
+        <th class="mdl-data-table__cell--non-numeric">Mesačná splátka</th>
+        <th class="mdl-data-table__cell--non-numeric">Typ nehnuteľnosti</th>
+        <!--        <th class="mdl-data-table__cell&#45;&#45;non-numeric">Adresa nehnuteľnosti</th>-->
+        <th class="mdl-data-table__cell--non-numeric">Hodnota nehnuteľnosti</th>
+        <th class="mdl-data-table__cell--non-numeric">Hodnota vybavenia</th>
+    </tr>
+    </thead>
+    <tbody>
+    <td th:text="${contract.ID}"></td>
+    <td th:text="${contract.getInsured().toString()}"></td>
+    <td th:text="${contract.dateOfConclusion}"></td></time>
+    <td th:text="${contract.startOfInsurance}"></td>
+    <td th:text="${contract.endOfInsurance}"></td>
+    <td th:text="${contract.maxSumOfInsurance}"></td>
+    <td th:text="${contract.monthlyPayment}"></td>
+    <td th:text="${contract.typeOfProperty}"></td>
+    <!--    <td th:text="${contract.adressOfProperty}"></td>-->
+    <td th:text="${contract.valueOfProperty}"></td>
+    <td th:text="${contract.valueOfEquipment}"></td>
+    <td><a th:href="@{'/contract/modify/' +  ${insuredID} + '/' + ${contract.ID}}">Upraviť</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

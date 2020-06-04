@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>modifyPerson</title>
+</head>
+<a th:href="@{'/'}">Domov</a>
+
+<body>
+<form th:action="@{/person/modify}" th:object="${person}" method="post">
+
+    <label for="text">Meno</label>
+    <input type="text" th:field="*{name}"/>
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p><br>
+    <br>
+
+    <label for="text">Priezvisko</label>
+    <input type="text" th:field="*{surname}"/>
+    <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p><br>
+    <br>
+
+    <label for="text">Rodné číslo</label>
+    <input type="text"  th:field="*{IN}"/>
+    <p th:if="${#fields.hasErrors('IN')}" th:errors="*{IN}"></p><br>
+    <br>
+
+    <label for="text">E-mail</label>
+    <input type="email" id="text" th:field="*{email}"/>
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p><br>
+    <br>
+
+    <label for="text">Adresa(PSČ Obec Ulica Číslo)</label>
+    <input type="text" th:field="*{homeAddress}"/>
+    <p th:if="${#fields.hasErrors('homeAddress')}" th:errors="*{homeAddress}"></p><br>
+    <br>
+
+    <label for="text">Korešpondenčná Adresa(PSČ Obec Ulica Číslo)</label>
+    <input type="text"  th:field="*{corrAddress}"/>
+    <p th:if="${#fields.hasErrors('corrAddress')}" th:errors="*{corrAddress}"></p><br>
+    <br>
+
+    <input type="submit" value="Potvrdiť"/>
+
+</form>
+</body>
+</html>

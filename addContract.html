@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>addOne</title>
+</head>
+<a th:href="@{'/'}">Domov</a>
+<body>
+<form th:action="@{'/person/addContract/' + ${personID}}" th:object="${contract}" method="post">
+
+    <label for="text">Dátum založenia</label>
+    <input type="date" th:field="*{dateOfConclusion}"/>
+    <p th:if="${#fields.hasErrors('dateOfConclusion')}" th:errors="*{dateOfConclusion}"></p><br>
+    <br>
+
+    <label for="text">Začiatok platnosti</label>
+    <input type="date" th:field="*{startOfInsurance}"/>
+    <p th:if="${#fields.hasErrors('startOfInsurance')}" th:errors="*{startOfInsurance}"></p><br>
+    <br>
+
+    <label for="text">Koniec platnosti</label>
+    <input type="date"  th:field="*{endOfInsurance}"/>
+    <p th:if="${#fields.hasErrors('endOfInsurance')}" th:errors="*{endOfInsurance}"></p><br>
+    <br>
+
+    <label for="text">Maximálna suma</label>
+    <input type="number" id="text" th:field="*{maxSumOfInsurance}"/>
+    <p th:if="${#fields.hasErrors('maxSumOfInsurance')}" th:errors="*{maxSumOfInsurance}"></p><br>
+    <br>
+
+    <label for="text">Mesačná splátka</label>
+    <input type="number" th:field="*{monthlyPayment}"/>
+    <p th:if="${#fields.hasErrors('monthlyPayment')}" th:errors="*{monthlyPayment}"></p><br>
+    <br>
+
+    <input type="submit" value="Potvrdiť"/>
+
+</form>
+</body>
+</html>

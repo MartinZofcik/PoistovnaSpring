@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>modifyContract</title>
+</head>
+<a th:href="@{'/'}">Domov</a>
+<body>
+<form th:action="@{'/contract/modify/' +  ${person.ID} + '/' + ${contract.ID}}" th:object="${contract}" method="post">
+
+    <label for="text">Dátum založenia</label>
+    <input type="LocalDate" th:value="*{dateOfConclusion}" name="dateOfConclusion"/>
+    <p th:if="${#fields.hasErrors('dateOfConclusion')}" th:errors="*{dateOfConclusion}"></p><br>
+    <br>
+
+    <label for="text">Začiatok platnosti</label>
+    <input type="LocalDate" th:value="*{startOfInsurance}" name="startOfInsurance"/>
+    <p th:if="${#fields.hasErrors('startOfInsurance')}" th:errors="*{startOfInsurance}"></p><br>
+    <br>
+
+    <label for="text">Koniec platnosti</label>
+    <input type="LocalDate"  th:value="*{endOfInsurance}" name="endOfInsurance"/>
+    <p th:if="${#fields.hasErrors('endOfInsurance')}" th:errors="*{endOfInsurance}"></p><br>
+    <br>
+
+    <label for="text">Maximálna suma</label>
+    <input type="number" id="text" th:field="*{maxSumOfInsurance}" name="maxSumOfInsurance"/>
+    <p th:if="${#fields.hasErrors('maxSumOfInsurance')}" th:errors="*{maxSumOfInsurance}"></p><br>
+    <br>
+
+    <label for="text">Mesačná splátka</label>
+    <input type="number" th:field="*{monthlyPayment}" name="monthlyPayment"/>
+    <p th:if="${#fields.hasErrors('monthlyPayment')}" th:errors="*{monthlyPayment}"></p><br>
+    <br>
+
+    <label for="text">Trvalé následky</label>
+    <input type="number"  th:field="*{sumPermCons}" name="sumPermCons"/>
+    <p th:if="${#fields.hasErrors('sumPermCons')}" th:errors="*{sumPermCons}"></p><br>
+    <br>
+
+    <label for="text">Smrť</label>
+    <input type="number"  th:field="*{sumDeath}" name="sumDeath"/>
+    <p th:if="${#fields.hasErrors('sumDeath')}" th:errors="*{sumDeath}"></p><br>
+    <br>
+
+    <label for="text">Denná kompenzácia</label>
+    <input type="number"  th:field="*{dailyComp}" name="dailyComp"/>
+    <p th:if="${#fields.hasErrors('dailyComp')}" th:errors="*{dailyComp}"></p><br>
+    <br>
+
+    <label for="text">Región</label>
+    <select th:value="*{region}">
+        <option th:value="Region.SLOVAKIA" th:text="Slovensko"></option>
+        <option th:value="Region.WORLD" th:text="Svet"></option>
+        <option th:value="Region.SLOVAKIAWORLD" th:text="SlovenskoSvet"></option>
+    </select>
+    <br><br>
+
+    <input type="submit" value="Potvrdiť"/>
+
+</form>
+</body>
+</html>
